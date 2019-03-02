@@ -83,34 +83,34 @@
             <li><button onclick="addToSearch('Whiskey')" >Whiskey</button></li>
             <li><button onclick="addToSearch('Gin')" >Gin</button></li>
             <li><button onclick="addToSearch('Tequilla')" >Tequilla</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Peach Schnapps</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Coconut Rum</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Spiced Rum</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Light Rum</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Dry Gin</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Cherry Whiskey</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Irish Whiskey</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Coffee Liquor</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Orange Liquor</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Cream de cacao</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Cherry Brandy</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Dry vermouth</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Violet flower Liquor</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Maraschino</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Elder Flower Liqour</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Dark Rum</button></li>
+            <li><button onclick="addToSearch('Peach Schnapps')" >Peach Schnapps</button></li>
+            <li><button onclick="addToSearch('Coconut Rum')" >Coconut Rum</button></li>
+            <li><button onclick="addToSearch('Spiced Rum')" >Spiced Rum</button></li>
+            <li><button onclick="addToSearch('Light Rum')" >Light Rum</button></li>
+            <li><button onclick="addToSearch('Dry Gin')" >Dry Gin</button></li>
+            <li><button onclick="addToSearch('Cherry Whiskey')" >Cherry Whiskey</button></li>
+            <li><button onclick="addToSearch('Irish Whiskey')" >Irish Whiskey</button></li>
+            <li><button onclick="addToSearch('coffee Liquor')" >Coffee Liquor</button></li>
+            <li><button onclick="addToSearch('orange Liquor')" >Orange Liquor</button></li>
+            <li><button onclick="addToSearch('Cream de cacao')" >Cream de cacao</button></li>
+            <li><button onclick="addToSearch('Cherry Brandy')" >Cherry Brandy</button></li>
+            <li><button onclick="addToSearch('Dry Vermouth')" >Dry vermouth</button></li>
+            <li><button onclick="addToSearch('Violet Flower Liquor')" >Violet flower Liquor</button></li>
+            <li><button onclick="addToSearch('Maraschino')" >Maraschino</button></li>
+            <li><button onclick="addToSearch('Elder Flower Liquor')" >Elder Flower Liqour</button></li>
+            <li><button onclick="addToSearch('Dark Rum')" >Dark Rum</button></li>
           </ul>
         </div>
         <div class="column">
         <h2>What you are Juicing?</h2>
         <ul id="myMenu">
-          <li><button onclick="addToSearch('Pineapple')" >Pineapple</button></li>
-          <li><button onclick="addToSearch('Orange')" >Orange</button></li>
-          <li><button onclick="addToSearch('Tomato')" >Tomato</button></li>
-          <li><button onclick="addToSearch('Lime')" >Lime</button></li>
-          <li><button onclick="addToSearch('Lemon')" >Lemon</button></li>
-          <li><button onclick="addToSearch('Grapefruit')" >Grapefruit</button></li>
-          <li><button onclick="addToSearch('Cranberry')" >Cranberry</button></li>
+          <li><button onclick="addToSearch('Pineapple juice')" >Pineapple</button></li>
+          <li><button onclick="addToSearch('Orange juice')" >Orange</button></li>
+          <li><button onclick="addToSearch('Tomato juice')" >Tomato</button></li>
+          <li><button onclick="addToSearch('Lime juice')" >Lime</button></li>
+          <li><button onclick="addToSearch('Lemon juice')" >Lemon</button></li>
+          <li><button onclick="addToSearch('Grapefruit juice')" >Grapefruit</button></li>
+          <li><button onclick="addToSearch('Cranberry juice')" >Cranberry</button></li>
         </ul>
         </div>
         <div class="column">
@@ -126,22 +126,8 @@
         </div>
       </div>
     </div>
-    <div id="GetMixing"  class="w3-row-padding w3-padding-64 w3-container">
 
-          <div class="row">
-            <div class="column">
-          <h2>Feeling Fancy?</h2>
-          <ul id="myMenu">
-            <li><button onclick="addToSearch('Vodka')" >Club soda</button></li>
-            <li><button onclick="addToSearch('Rum')" >Cola</button></li>
-            <li><button onclick="addToSearch('Whiskey')" >Ginger beer</button></li>
-            <li><button onclick="addToSearch('Gin')" >Ginger Ale</button></li>
-            <li><button onclick="addToSearch('Tequilla')" >Rootbeer</button></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div id="recipes" class="row">
+    <div id="recipes" class="row w3-xxlarge w3-border w3-blue">
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -176,8 +162,14 @@
     function addToSearch(x) {
       alcohols.push(x.toLowerCase());
       var btn = document.createElement("BUTTON");
-      btn.value=x;
-      btn.onclick = function(){ alcohols.splice(alcohols.indexOf(this.value),1); this.parentElement.removeChild(this);};
+      btn.onclick = function(){
+        console.log(alcohols);
+        var index = alcohols.indexOf(x.toLowerCase());
+        if (index > -1) {
+          alcohols.splice(index, 1);
+        }
+          console.log(alcohols);
+          this.parentElement.removeChild(this);};
       btn.setAttribute("value",x);
       var t = document.createTextNode(x);
       btn.appendChild(t);
@@ -195,7 +187,18 @@ function makePost() {
   httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === XMLHttpRequest.DONE){
       if(httpRequest.status === 200){
-        document.getElementById("recipes").innerText = JSON.parse(httpRequest.responseText); 
+        var myResponse = JSON.parse(httpRequest.responseText); 
+        txt += "<table border='1'";
+        for(var i = 0; i < myResponse.length; i++){
+          txt += "<tr>";
+          var row = myResponse[i];
+          for(var x = 0; x < row.length; x++){
+            txt += "<td>" + row[x] + "</td>";
+          }
+          txt += "</tr>";
+        }
+        txt += "</table>";
+        document.getElementById("recipes").innerHTML = txt;
       }
       else{
         alert("Something went wrong.");

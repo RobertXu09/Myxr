@@ -11,7 +11,7 @@ An app to help aspiring bartenders maximize their creative potential
     - For Windows, enter `set FLASK_APP=myxr.py` on the command line
     - For Linux/OSX, enter `export FLASK_APP=myxr.py` on the command line
 5. Run app with `flask run` on the command line
-6. Navigate to [local test server](http://localhost:5000)
+6. Navigate to local test server (should be something along the lines of `localhost:5000`)
 
 Made by:
 

@@ -13,6 +13,8 @@ An app to help aspiring bartenders maximize their creative potential
 5. Run app with `flask run` on the command line
 6. Navigate to local test server (should be something along the lines of `localhost:5000`)
 
+## About
+
 Made by:
 
 - Roman Hamilton

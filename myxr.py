@@ -1,6 +1,5 @@
 import flask
 import csv
-import os
 
 # init
 app = flask.Flask(__name__)

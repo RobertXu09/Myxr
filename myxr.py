@@ -1,9 +1,6 @@
 import flask
 import csv
 
-# variables
-drinks = {}
-
 # init
 app = flask.Flask(__name__)
 

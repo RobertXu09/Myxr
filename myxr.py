@@ -1,28 +1,24 @@
-import flask # Flask, request, abort, url_for, session, redirect, flash, render_template
+import flask
 import csv
-import records
 
-#init
+# variables
+drinks = {}
+
+# init
 app = flask.Flask(__name__)
 
 # config
 app.config['SECRET_KEY'] = "i forget why i need this tbh"
-
-db = records.Database('sqlite:///myxr.db')
-
-# command line handlers
-@app.cli.command('initdb')
-def initdb_command():
-    # create database
-    db.query('DROP TABLE IF EXISTS drinks')
-    db.query('CREATE TABLE drinks (key int PRIMARY KEY, name text, ingredients text')
-
-    # add contents of csv file to database
-    with open('/resources/ingredients.csv', newline = '') as csv_file:
-        csv_reader = csv.reader(csv_file)
-    return
-
+            
 # routes
-@app.route('/index/')
-def index():
-    pass
+@app.route('/new_items/', methods=["POST"])
+def items():
+    liquids = flask.request.get_json()
+    response = []
+    with open('resources/ingredients.csv') as f:
+        r = csv.reader(f)
+        for row in r:
+            if set(liquids) <= set(row):
+                response.append(liquids)
+        
+    return flask.jsonify(response)

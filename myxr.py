@@ -1,5 +1,4 @@
 import flask # Flask, request, abort, url_for, session, redirect, flash, render_template
-import models # db, Owner, Stylist, Patron, Appointment
 import csv
 import records
 
@@ -7,15 +6,23 @@ import records
 app = flask.Flask(__name__)
 
 # config
-SECRET_KEY = "i forget why i need this tbh"
-SQLALCHEMY_DATABASE_URI = "sqlite:///myxr.db" # we'll probably change this
-
-app.config.from_object(__name__)
+app.config['SECRET_KEY'] = "i forget why i need this tbh"
 
 db = records.Database('sqlite:///myxr.db')
 
 # command line handlers
-@app.cli.command('run')
-def run_command():
+@app.cli.command('initdb')
+def initdb_command():
+    # create database
+    db.query('DROP TABLE IF EXISTS drinks')
+    db.query('CREATE TABLE drinks (key int PRIMARY KEY, name text, ingredients text')
+
     # add contents of csv file to database
+    with open('/resources/ingredients.csv', newline = '') as csv_file:
+        csv_reader = csv.reader(csv_file)
+    return
+
+# routes
+@app.route('/index/')
+def index():
     pass

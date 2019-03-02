@@ -3,9 +3,8 @@
 Made by:
 
 - Roman Hamilton
-- Cory
-- Antonio
-- Carter
-- The dude who left
+- Cory Cizauskas
+- Antonio Fioca
+- Carter Moriarity
 
 An app to help aspiring bartenders maximize their creative potential
